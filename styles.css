@@ -311,3 +311,74 @@ h1, h2, h3, h4 { font-family: var(--font); font-weight: 500; line-height: 1.2; m
   .hero__facts { justify-content: flex-start; }
   .hero__photo { margin: 48px 0 76px; width: 380px; }
 }
+/* ---------- Сардаана ---------- */
+.bloom { --p: 0; position: relative; height: 260vh; }
+.bloom__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.bloom__glow {
+  position: absolute;
+  width: 120vmin; height: 120vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226,52,42,.35) 0%, rgba(255,122,61,.12) 35%, transparent 65%);
+  opacity: var(--p);
+  transform: scale(calc(.5 + var(--p) * .6));
+  filter: blur(10px);
+}
+.bloom__svg {
+  position: relative;
+  width: min(86vw, 62vh, 560px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 30px rgba(255,90,50,calc(var(--p) * .45)));
+  transform: translateY(calc((1 - var(--p)) * 6vh - 8vh));
+}
+.bloom__rings circle {
+  fill: none;
+  stroke: #f3c9a8;
+  stroke-width: .6;
+  stroke-dasharray: 2 6;
+  opacity: calc(var(--p) * .45);
+}
+.bloom__rings { transform-origin: 200px 200px; animation: spin 60s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.petal__rib { fill: none; stroke: rgba(255,220,180,.35); stroke-width: 1; }
+.petal__spot { fill: #4a0a0c; opacity: .75; }
+.stamen__line { stroke: #ffb27a; stroke-width: 1.4; stroke-linecap: round; }
+.stamen__head { fill: #6b2a12; }
+
+.bloom__text {
+  position: absolute;
+  left: 16px; right: 16px; bottom: 7vh;
+  text-align: center;
+  opacity: calc((var(--p) - .6) * 2.5);
+  transform: translateY(calc((1 - var(--p)) * 30px));
+}
+.bloom__kicker {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: .75rem;
+  color: #ff7a3d;
+}
+.bloom__title { font-size: clamp(1.3rem, 4vw, 2.2rem); margin: 0 0 10px; }
+.bloom__lead { margin: 0 auto; max-width: 520px; color: var(--muted); font-size: .95rem; }
+.bloom__hint {
+  position: absolute;
+  bottom: 3vh;
+  font-size: .75rem;
+  letter-spacing: .15em;
+  color: var(--muted);
+  opacity: calc(1 - var(--p) * 3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bloom { height: auto; }
+  .bloom__sticky { position: relative; height: auto; padding: 48px 0 220px; }
+  .bloom__rings { animation: none; }
+}

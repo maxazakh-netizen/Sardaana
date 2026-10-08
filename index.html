@@ -34,6 +34,42 @@
     <div class="ornament" aria-hidden="true"></div>
   </header>
 
+  <section class="bloom" aria-label="Сардаана — цветок Якутии">
+    <div class="bloom__sticky">
+      <div class="bloom__glow" aria-hidden="true"></div>
+      <svg class="bloom__svg" viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <linearGradient id="petalGrad" x1="0" y1="0" x2="0" y2="-170" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7a0f12"/>
+            <stop offset=".35" stop-color="#e2342a"/>
+            <stop offset=".8" stop-color="#ff7a3d"/>
+            <stop offset="1" stop-color="#ffc07a"/>
+          </linearGradient>
+          <radialGradient id="coreGrad">
+            <stop offset="0" stop-color="#ffe0a8"/>
+            <stop offset="1" stop-color="#b8321f"/>
+          </radialGradient>
+        </defs>
+        <g class="bloom__rings">
+          <circle cx="200" cy="200" r="120"/>
+          <circle cx="200" cy="200" r="160"/>
+          <circle cx="200" cy="200" r="196"/>
+        </g>
+        <g class="bloom__flower" transform="translate(200 200)">
+          <g class="bloom__petals"></g>
+          <g class="bloom__stamens"></g>
+          <circle r="10" fill="url(#coreGrad)"/>
+        </g>
+      </svg>
+      <div class="bloom__text">
+        <p class="bloom__kicker">Сардаана</p>
+        <h2 class="bloom__title">Цветок Якутии — в&nbsp;каждой паре</h2>
+        <p class="bloom__lead">Сардаана распускается в&nbsp;короткое северное лето и&nbsp;хранит его тепло всю зиму. Так&nbsp;же и&nbsp;наши унтоваленки: сделаны здесь, чтобы согревать здесь.</p>
+      </div>
+      <div class="bloom__hint" aria-hidden="true">листайте вниз ↓</div>
+    </div>
+  </section>
+
   <section class="values">
     <div class="container values__grid">
       <article class="value">
@@ -90,5 +126,6 @@
 
   <script src="models.js"></script>
   <script src="app.js"></script>
+  <script src="bloom.js"></script>
 </body>
 </html>
