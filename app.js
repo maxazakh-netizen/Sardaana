@@ -12,7 +12,12 @@ for (const cat of CATEGORIES) {
       <h3>${cat.title}</h3>
       <p>${cat.text}</p>
     </div>
-    <div class="grid"></div>
+    <div class="carousel">
+      <button class="carousel__btn carousel__btn--prev" aria-label="Назад">←</button>
+      <div class="grid"></div>
+      <button class="carousel__btn carousel__btn--next" aria-label="Вперёд">→</button>
+    </div>
+    <div class="carousel__dots"></div>
   `;
 
   const grid = section.querySelector(".grid");
@@ -34,4 +39,27 @@ for (const cat of CATEGORIES) {
     grid.appendChild(card);
   }
   root.appendChild(section);
+  setupCarousel(section, models.length);
+}
+
+function setupCarousel(section, count) {
+  const grid = section.querySelector(".grid");
+  const prev = section.querySelector(".carousel__btn--prev");
+  const next = section.querySelector(".carousel__btn--next");
+  const dotsBox = section.querySelector(".carousel__dots");
+  const dots = Array.from({ length: count }, () => dotsBox.appendChild(document.createElement("span")));
+
+  const step = () => grid.querySelector(".card").offsetWidth + 14;
+  prev.addEventListener("click", () => grid.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => grid.scrollBy({ left: step(), behavior: "smooth" }));
+
+  const update = () => {
+    const i = Math.round(grid.scrollLeft / step());
+    dots.forEach((d, j) => d.classList.toggle("is-active", j === i));
+    prev.disabled = grid.scrollLeft < 4;
+    next.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
+  };
+  grid.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 }

@@ -182,16 +182,52 @@ h1, h2, h3, h4 { font-family: var(--font); font-weight: 500; line-height: 1.2; m
 }
 .tab:hover { border-color: #f3c9a8; color: #f3c9a8; }
 
-.category { padding: 32px 0; scroll-margin-top: 72px; }
+.category { padding: 32px 0; scroll-margin-top: 130px; }
 .category__head { margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 16px; }
 .category__head h3 { font-size: 1.4rem; margin-bottom: 4px; }
 .category__head p { margin: 0; color: var(--muted); }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  grid-auto-flow: column;
+  grid-auto-columns: 72%;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 16px;
+  padding: 4px 16px 12px;
+  margin: 0 -16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.grid::-webkit-scrollbar { display: none; }
+.grid > .card { scroll-snap-align: start; }
+@media (min-width: 600px) { .grid { grid-auto-columns: 40%; } }
+@media (min-width: 900px) { .grid { grid-auto-columns: calc((100% - 3 * 14px - 32px) / 4); } }
+
+.carousel { position: relative; }
+.carousel__btn {
+  position: absolute;
+  top: 38%;
+  z-index: 2;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(14,14,16,.85);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+.carousel__btn--prev { left: -8px; }
+.carousel__btn--next { right: -8px; }
+.carousel__btn:disabled { opacity: .25; cursor: default; }
+@media (hover: hover) and (min-width: 900px) { .carousel__btn { display: grid; place-items: center; } }
+
+.carousel__dots { display: flex; justify-content: center; gap: 6px; margin-top: 6px; }
+.carousel__dots span { width: 6px; height: 6px; border-radius: 50%; background: #3a3a40; transition: background .2s, width .2s; }
+.carousel__dots span.is-active { background: #f3c9a8; width: 18px; border-radius: 3px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -199,7 +235,7 @@ h1, h2, h3, h4 { font-family: var(--font); font-weight: 500; line-height: 1.2; m
   overflow: hidden;
   transition: transform .2s, box-shadow .2s;
 }
-.card:hover { transform: translateY(-3px); border-color: #3a3a40; }
+.card:hover { border-color: #3a3a40; }
 .card__photo {
   aspect-ratio: 3 / 4;
   background: var(--snow);
