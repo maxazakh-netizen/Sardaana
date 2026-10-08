@@ -1,13 +1,22 @@
+/* Etude Noire: положите файлы в папку fonts/ — шрифт подхватится автоматически */
+@font-face { font-family: "Etude Noire"; font-weight: 300; font-display: swap;
+  src: local("Etude Noire Light"), local("EtudeNoire-Light"), url("fonts/EtudeNoire-Light.woff2") format("woff2"), url("fonts/EtudeNoire-Light.otf") format("opentype"); }
+@font-face { font-family: "Etude Noire"; font-weight: 400; font-display: swap;
+  src: local("Etude Noire"), local("EtudeNoire-Regular"), url("fonts/EtudeNoire-Regular.woff2") format("woff2"), url("fonts/EtudeNoire-Regular.otf") format("opentype"); }
+@font-face { font-family: "Etude Noire"; font-weight: 500; font-display: swap;
+  src: local("Etude Noire Medium"), local("EtudeNoire-Medium"), url("fonts/EtudeNoire-Medium.woff2") format("woff2"), url("fonts/EtudeNoire-Medium.otf") format("opentype"); }
+
 :root {
-  --bg: #fbf7f1;
-  --surface: #ffffff;
-  --ink: #2b211b;
-  --muted: #6f625a;
+  --font: "Etude Noire", "Unbounded", system-ui, sans-serif;
+  --bg: #000000;
+  --surface: #0e0e10;
+  --ink: #f2efe9;
+  --muted: #9a958e;
   --accent: #a3312a;      /* брусничный */
   --accent-dark: #7d231e;
-  --snow: #eef3f7;
+  --snow: #16171b;
   --night: #1c2a3a;       /* полярная ночь */
-  --line: #e7ddd2;
+  --line: #26262a;
   --radius: 16px;
 }
 
@@ -17,13 +26,14 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Nunito", system-ui, sans-serif;
+  font-family: var(--font);
+  font-weight: 300;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+h1, h2, h3, h4 { font-family: var(--font); font-weight: 500; line-height: 1.2; margin: 0 0 .5em; }
 
 .container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
 
@@ -33,7 +43,7 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   color: #fff;
   background:
     radial-gradient(ellipse at 80% 0%, rgba(255,255,255,.12), transparent 60%),
-    linear-gradient(180deg, #0f2240 0%, #2c4466 55%, #c9b49c 100%);
+    linear-gradient(180deg, #000 0%, #0b1424 60%, #000 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -56,20 +66,20 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
 }
 .hero__brand {
   text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .8rem;
-  font-weight: 700;
-  color: #f3c9a8;
-  margin: 0 0 20px;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: .02em;
+  color: #fff;
+  margin: 0 0 28px;
 }
 .hero__title {
-  font-size: clamp(2rem, 5.5vw, 3.6rem);
-  font-weight: 700;
+  font-size: clamp(1.6rem, 4.6vw, 3rem);
+  font-weight: 500;
 }
 .hero__count {
   display: block;
   color: #f3c9a8;
-  font-style: italic;
 }
 .hero__lead {
   font-size: clamp(1.05rem, 2.4vw, 1.3rem);
@@ -91,7 +101,7 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   padding: 12px 20px;
   min-width: 120px;
 }
-.fact__value { display: block; font-family: "Lora", serif; font-size: 1.5rem; font-weight: 700; }
+.fact__value { display: block;  font-size: 1.3rem; font-weight: 400; }
 .fact__label { font-size: .85rem; color: #c5d2dd; }
 
 .btn {
@@ -99,7 +109,7 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   background: var(--accent);
   color: #fff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400;
   padding: 14px 32px;
   border-radius: 999px;
   transition: background .2s;
@@ -170,11 +180,11 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   border-radius: 999px;
   font-size: .95rem;
 }
-.tab:hover { border-color: var(--accent); color: var(--accent); }
+.tab:hover { border-color: #f3c9a8; color: #f3c9a8; }
 
 .category { padding: 32px 0; scroll-margin-top: 72px; }
 .category__head { margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 16px; }
-.category__head h3 { font-size: 1.6rem; margin-bottom: 4px; }
+.category__head h3 { font-size: 1.4rem; margin-bottom: 4px; }
 .category__head p { margin: 0; color: var(--muted); }
 
 .grid {
@@ -189,7 +199,7 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   overflow: hidden;
   transition: transform .2s, box-shadow .2s;
 }
-.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(43,33,27,.1); }
+.card:hover { transform: translateY(-3px); border-color: #3a3a40; }
 .card__photo {
   aspect-ratio: 3 / 4;
   background: var(--snow);
@@ -199,14 +209,15 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
 .card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .card__placeholder { color: var(--muted); font-size: .9rem; }
 .card__body { padding: 16px 18px 18px; }
-.card__body h4 { font-size: 1.15rem; margin-bottom: 2px; }
+.card__body h4 { font-size: 1rem; font-weight: 200; margin-bottom: 4px; }
 .card__meta { margin: 0; color: var(--muted); font-size: .9rem; }
-.card__price { margin: 8px 0 0; font-weight: 700; color: var(--accent); font-size: 1.15rem; }
+.card__price { margin: 8px 0 0; font-weight: 400; color: #f3c9a8; font-size: 1.15rem; }
 
 /* ---------- Order ---------- */
 .order { padding: 32px 0 64px; }
 .order__box {
-  background: var(--night);
+  background: var(--surface);
+  border: 1px solid var(--line);
   color: #fff;
   border-radius: 24px;
   padding: 40px 24px;
@@ -220,9 +231,9 @@ h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 
   display: grid; place-items: center;
   border: 1px solid rgba(255,255,255,.3);
   border-radius: 50%;
-  font-weight: 700;
+  font-weight: 300;
 }
-.order__contacts { font-weight: 700; }
+.order__contacts { font-weight: 400; }
 
 .footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .9rem; text-align: center; }
 .footer p { margin: 0; }
