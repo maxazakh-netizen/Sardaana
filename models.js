@@ -4,6 +4,14 @@
 const PRICE = "6 000 ₽";
 const SIZES = "25–33";
 
+// Телефон менеджера для заказов в WhatsApp
+const PHONE_DISPLAY = "8 914 114-366";   // как номер показывается на сайте
+const PHONE_WHATSAPP = "7914114366";     // для ссылки: 7 + номер без восьмёрки, только цифры
+
+function whatsappLink(text) {
+  return `https://wa.me/${PHONE_WHATSAPP}?text=${encodeURIComponent(text)}`;
+}
+
 const CATEGORIES = [
   {
     id: "wool",

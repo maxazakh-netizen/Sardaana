@@ -269,7 +269,37 @@ h1, h2, h3, h4 { font-family: var(--font); font-weight: 500; line-height: 1.2; m
   border-radius: 50%;
   font-weight: 300;
 }
-.order__contacts { font-weight: 400; }
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  transition: transform .15s, background .2s;
+}
+.phone:hover { background: #3ee07a; transform: translateY(-2px); }
+.phone__icon { width: 28px; height: 28px; flex: none; }
+.order__hint { font-size: .85rem; color: var(--muted) !important; margin: 14px 0 0; }
+
+.card__order {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #25d366;
+  color: #25d366;
+  text-align: center;
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 400;
+}
+.card__order:hover { background: #25d366; color: #000; }
 
 .footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .9rem; text-align: center; }
 .footer p { margin: 0; }

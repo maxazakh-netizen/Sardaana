@@ -34,6 +34,8 @@ for (const cat of CATEGORIES) {
         <h4>${m.name}</h4>
         <p class="card__meta">Размеры ${SIZES}</p>
         <p class="card__price">${PRICE}</p>
+        <a class="card__order" target="_blank" rel="noopener"
+           href="${whatsappLink(`Здравствуйте! Хочу заказать унтоваленки ${m.name}. Размер: `)}">Заказать в WhatsApp</a>
       </div>
     `;
     grid.appendChild(card);
@@ -63,3 +65,8 @@ function setupCarousel(section, count) {
   window.addEventListener("resize", update);
   update();
 }
+
+// Блок «Как заказать»
+const phoneLink = document.getElementById("phone-link");
+phoneLink.href = whatsappLink("Здравствуйте! Хочу заказать детские унтоваленки.");
+phoneLink.querySelector(".phone__number").textContent = PHONE_DISPLAY;
