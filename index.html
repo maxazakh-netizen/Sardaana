@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Детские унтоваленки — фабрика «Сардаана»</title>
+  <meta name="description" content="17 моделей тёплых детских унтоваленок на якутскую зиму. Сделано в Якутии местными мастерами из натуральной шерсти. Размеры 25–33, цена 6 000 ₽.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__brand">Фабрика «Сардаана» · Якутия</p>
+      <h1 class="hero__title">
+        <span class="hero__count">17 моделей</span>
+        для ваших смышлёных и&nbsp;любимых деток
+      </h1>
+      <p class="hero__lead">
+        Тёплые унтоваленки на&nbsp;якутскую зиму — якутские изделия для якутской зимы,
+        сделанные руками местных мастеров.
+      </p>
+      <div class="hero__facts">
+        <div class="fact"><span class="fact__value">6 000 ₽</span><span class="fact__label">за пару</span></div>
+        <div class="fact"><span class="fact__value">25–33</span><span class="fact__label">размеры</span></div>
+        <div class="fact"><span class="fact__value">17</span><span class="fact__label">моделей</span></div>
+      </div>
+      <a class="btn" href="#catalog">Смотреть модели</a>
+    </div>
+    <img class="hero__photo" src="photos/model-02.jpg" alt="Бордовые детские унтоваленки фабрики «Сардаана»">
+    <div class="ornament" aria-hidden="true"></div>
+  </header>
+
+  <section class="values">
+    <div class="container values__grid">
+      <article class="value">
+        <div class="value__icon" aria-hidden="true">❄</div>
+        <h2>Для якутской зимы</h2>
+        <p>Создано там, где зима настоящая. Мы знаем, что такое −50&nbsp;°C, и шьём обувь, в которой ребёнку тепло на&nbsp;прогулке.</p>
+      </article>
+      <article class="value">
+        <div class="value__icon" aria-hidden="true">✋</div>
+        <h2>Сделано в Якутии</h2>
+        <p>Каждую пару полностью изготавливают местные мастера в Якутии — от&nbsp;валяния до&nbsp;последнего стежка.</p>
+      </article>
+      <article class="value">
+        <div class="value__icon" aria-hidden="true">🌿</div>
+        <h2>Натуральные материалы</h2>
+        <p>Шерсть, войлок, овчина и&nbsp;кожа. Натуральные материалы греют, дышат и&nbsp;берегут детские ножки в&nbsp;самый сильный мороз.</p>
+      </article>
+    </div>
+  </section>
+
+  <main id="catalog" class="catalog">
+    <div class="container">
+      <h2 class="section-title">Каталог</h2>
+      <p class="section-sub">Все модели — 6 000 ₽, размеры с&nbsp;25 по&nbsp;33</p>
+      <nav class="tabs" aria-label="Материал">
+        <a href="#wool" class="tab">Шерсть</a>
+        <a href="#wool-leather" class="tab">Шерсть + кожа</a>
+        <a href="#wool-faux" class="tab">Шерсть + кожзам</a>
+      </nav>
+      <div id="categories"></div>
+    </div>
+  </main>
+
+  <section class="order" id="order">
+    <div class="container order__box">
+      <h2>Как заказать</h2>
+      <p>Выберите модель и размер, напишите нам — подскажем по размеру и оформим заказ.</p>
+      <div class="sizes" aria-label="Размеры">
+        <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span>
+      </div>
+      <p class="order__contacts">Контакты появятся здесь</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© Фабрика «Сардаана», Якутия. Якутские изделия для якутской зимы.</p>
+    </div>
+  </footer>
+
+  <script src="models.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

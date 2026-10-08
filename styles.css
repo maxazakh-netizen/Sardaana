@@ -1,0 +1,236 @@
+:root {
+  --bg: #fbf7f1;
+  --surface: #ffffff;
+  --ink: #2b211b;
+  --muted: #6f625a;
+  --accent: #a3312a;      /* брусничный */
+  --accent-dark: #7d231e;
+  --snow: #eef3f7;
+  --night: #1c2a3a;       /* полярная ночь */
+  --line: #e7ddd2;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: "Lora", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(255,255,255,.12), transparent 60%),
+    linear-gradient(180deg, #0f2240 0%, #2c4466 55%, #c9b49c 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 28px;
+}
+.hero__photo {
+  width: min(360px, 80%);
+  height: auto;
+  margin: -40px auto 32px;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(10,20,40,.35);
+}
+
+.hero__inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 72px 16px 96px;
+  text-align: center;
+}
+.hero__brand {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #f3c9a8;
+  margin: 0 0 20px;
+}
+.hero__title {
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+}
+.hero__count {
+  display: block;
+  color: #f3c9a8;
+  font-style: italic;
+}
+.hero__lead {
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  color: #dfe7ee;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+.hero__facts {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.fact {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  min-width: 120px;
+}
+.fact__value { display: block; font-family: "Lora", serif; font-size: 1.5rem; font-weight: 700; }
+.fact__label { font-size: .85rem; color: #c5d2dd; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 999px;
+  transition: background .2s;
+}
+.btn:hover { background: var(--accent-dark); }
+
+/* Якутский орнамент-полоса (ромбы) */
+.ornament {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 28px;
+  background:
+    linear-gradient(135deg, var(--bg) 25%, transparent 25%) -14px 0 / 28px 28px,
+    linear-gradient(225deg, var(--bg) 25%, transparent 25%) -14px 0 / 28px 28px,
+    linear-gradient(315deg, var(--bg) 25%, transparent 25%) 0 0 / 28px 28px,
+    linear-gradient(45deg, var(--bg) 25%, transparent 25%) 0 0 / 28px 28px;
+  background-color: var(--accent);
+}
+
+/* ---------- Values ---------- */
+.values { padding: 64px 0 24px; }
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.value {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.value__icon {
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  font-size: 1.6rem;
+  background: var(--snow);
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.value h2 { font-size: 1.3rem; }
+.value p { margin: 0; color: var(--muted); }
+
+/* ---------- Catalog ---------- */
+.catalog { padding: 48px 0 32px; }
+.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.section-sub { text-align: center; color: var(--muted); margin: 0 0 24px; }
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  background: var(--bg);
+  margin-bottom: 16px;
+}
+.tab {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .95rem;
+}
+.tab:hover { border-color: var(--accent); color: var(--accent); }
+
+.category { padding: 32px 0; scroll-margin-top: 72px; }
+.category__head { margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 16px; }
+.category__head h3 { font-size: 1.6rem; margin-bottom: 4px; }
+.category__head p { margin: 0; color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(43,33,27,.1); }
+.card__photo {
+  aspect-ratio: 3 / 4;
+  background: var(--snow);
+  display: grid;
+  place-items: center;
+}
+.card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card__placeholder { color: var(--muted); font-size: .9rem; }
+.card__body { padding: 16px 18px 18px; }
+.card__body h4 { font-size: 1.15rem; margin-bottom: 2px; }
+.card__meta { margin: 0; color: var(--muted); font-size: .9rem; }
+.card__price { margin: 8px 0 0; font-weight: 700; color: var(--accent); font-size: 1.15rem; }
+
+/* ---------- Order ---------- */
+.order { padding: 32px 0 64px; }
+.order__box {
+  background: var(--night);
+  color: #fff;
+  border-radius: 24px;
+  padding: 40px 24px;
+  text-align: center;
+}
+.order__box h2 { font-size: 1.9rem; }
+.order__box p { color: #dfe7ee; }
+.sizes { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.sizes span {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  font-weight: 700;
+}
+.order__contacts { font-weight: 700; }
+
+.footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .9rem; text-align: center; }
+.footer p { margin: 0; }
+
+@media (min-width: 900px) {
+  .hero { flex-direction: row; justify-content: center; gap: 24px; padding: 0 32px 28px; }
+  .hero__inner { text-align: left; margin: 0; padding-bottom: 96px; }
+  .hero__lead { margin-left: 0; }
+  .hero__facts { justify-content: flex-start; }
+  .hero__photo { margin: 48px 0 76px; width: 380px; }
+}
